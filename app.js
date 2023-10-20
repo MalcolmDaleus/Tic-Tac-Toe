@@ -84,7 +84,9 @@ function start() {
 		startButton.style.display = "none";
 		startSound.play();
 
-		// Creating the boxes with a staggered deployment using setInterval(). The "transform" CSS property is altered to create an animation and each box's HTML id is placed in an array for later use.
+		// Creating the boxes with a staggered deployment using setInterval(). 
+		// The "transform" CSS property is altered to create an animation 
+		// and each box's HTML id is placed in an array for later use.
 		let i = 0;
 		const setBoxes = setInterval(() => {
 			let gameBox = document.createElement("div");
@@ -137,7 +139,10 @@ function resetGame() {
 	});
 }
 
-// Handles the logic of the click event for each box. Checks which player is playing and if the box being selected is a valid choice (not occupied by an X or O) then changes the HTML and CSS to place the symbol and match the color scheme. Then it calls checkWinner() with the array of occupied boxes from the player object.
+// Handles the logic of the click event for each box. 
+// Checks which player is playing and if the box being selected is a valid choice (not occupied by an X or O), 
+// then changes the HTML and CSS to place the symbol and match the color scheme. 
+// Then it calls checkWinner() with the array of occupied boxes from the player object.
 
 function useBox(e) {
 	let thisBox = gameBoard.boxes.get(e.target.id);
@@ -232,7 +237,8 @@ function checkDiagnonalLeft(playerBoxes) {
 			sum++;
 		}
 	}
-	// If the array includes 3 boxes that correspond to the left diagonal of the board it is a valid win case and the results are displayed
+	// If the array includes 3 boxes that correspond to the left diagonal of the board 
+	// it is a valid win case and the results are displayed
 	if (sum == 3) {
 		hasWon = true;
 		displayResults();
@@ -251,7 +257,8 @@ function checkDiagnonalRight(playerBoxes) {
 			sum++;
 		}
 	}
-	// If the array includes 3 boxes that correspond to the right diagonal of the board it is a valid win case and the results are displayed
+	// If the array includes 3 boxes that correspond to the right diagonal of the board 
+	// it is a valid win case and the results are displayed
 	if (sum == 3) {
 		hasWon = true;
 		displayResults();
@@ -260,7 +267,8 @@ function checkDiagnonalRight(playerBoxes) {
 
 // ****** WINNER TESTS - DRAW ******
 
-// If no win case is found and all 9 boxes are occupied the game will end in a draw. This checks that all 9 boxes are occupied bt Xs or Os and flags a draw if the game is not already won
+// If no win case is found and all 9 boxes are occupied the game will end in a draw. 
+// This checks that all 9 boxes are occupied bt Xs or Os and flags a draw if the game is not already won
 function checkDraw() {
 	let full = 0;
 	for (let i = 0; i < 9; i++) {
@@ -276,7 +284,10 @@ function checkDraw() {
 
 // ****** DISPLAYING RESULTS ******
 
-// Displays the results of the game based on the game state. Hides the buttons and checks which player made the last move to win (uses !player1.isPlaying because of a bug where the player state changes before the results are displayed)
+// Displays the results of the game based on the game state. Hides the buttons 
+// and checks which player made the last move to win 
+// (uses !player1.isPlaying because of a bug where the player state changes before the results are displayed). 
+// Changes reset button to say "Play Again?" using the same functionality.
 function displayResults() {
 	gameStatus.style.display = "block";
 	resetButton.style.display = "none";
