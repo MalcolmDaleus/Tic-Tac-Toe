@@ -12,11 +12,11 @@ let draw = false;
 let hasWon = false;
 
 // Sound effects
-const popSound = new Audio("pop.mp3");
+const popSound = new Audio("sounds/pop.mp3");
 const clickXSound = new Audio("sounds/clickX.mp3");
-const clickOSound = new Audio("clickO.mp3");
-const winSound = new Audio("win.mp3");
-const drawSound = new Audio("draw.mp3");
+const clickOSound = new Audio("sounds/clickO.mp3");
+const winSound = new Audio("sounds/win.mp3");
+const drawSound = new Audio("sounds/draw.mp3");
 const startSound = new Audio("sounds/start.mp3");
 
 // Empty array storage for game box element ids
@@ -114,7 +114,8 @@ function start() {
 					.getElementById(boxHTMLIds[i])
 					.addEventListener("click", useBox)
 					.addEventListener("click", () => {
-						clickXSound.play());
+						clickXSound.play();
+					});
 			}
 		}, 3800);
 	});
@@ -153,7 +154,6 @@ function useBox(e) {
 		setTimeout(() => {
 			e.target.innerHTML = player1.boxSign;
 			checkWinner(player1.boxesOccupied);
-			clickXSound.play();
 		}, 100);
 		player2.isPlaying = true;
 		player1.isPlaying = false;
@@ -166,7 +166,6 @@ function useBox(e) {
 		setTimeout(() => {
 			e.target.innerHTML = player2.boxSign;
 			checkWinner(player2.boxesOccupied);
-			clickOSound.play();
 		}, 100);
 		player2.isPlaying = false;
 		player1.isPlaying = true;
