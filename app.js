@@ -13,11 +13,11 @@ let hasWon = false;
 
 // Sound effects
 const popSound = new Audio("pop.mp3");
-const clickXSound = new Audio("clickX.mp3");
+const clickXSound = new Audio("sounds/clickX.mp3");
 const clickOSound = new Audio("clickO.mp3");
 const winSound = new Audio("win.mp3");
 const drawSound = new Audio("draw.mp3");
-const startSound = new Audio("tic-tac-toe/sounds/start.mp3");
+const startSound = new Audio("sounds/start.mp3");
 
 // Empty array storage for game box element ids
 const boxHTMLIds = [];
@@ -112,7 +112,9 @@ function start() {
 			for (let i = 0; i < 9; i++) {
 				document
 					.getElementById(boxHTMLIds[i])
-					.addEventListener("click", useBox);
+					.addEventListener("click", useBox)
+					.addEventListener("click", () => {
+						clickXSound.play();
 			}
 		}, 3800);
 	});
