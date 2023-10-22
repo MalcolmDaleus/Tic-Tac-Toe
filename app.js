@@ -151,6 +151,7 @@ function useBox(e) {
 		setTimeout(() => {
 			e.target.innerHTML = player1.boxSign;
 			checkWinner(player1.boxesOccupied);
+			clickXSound.play();
 		}, 100);
 		player2.isPlaying = true;
 		player1.isPlaying = false;
@@ -163,6 +164,7 @@ function useBox(e) {
 		setTimeout(() => {
 			e.target.innerHTML = player2.boxSign;
 			checkWinner(player2.boxesOccupied);
+			clickOOSound.play();
 		}, 100);
 		player2.isPlaying = false;
 		player1.isPlaying = true;
