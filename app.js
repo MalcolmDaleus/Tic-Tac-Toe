@@ -112,10 +112,7 @@ function start() {
 			for (let i = 0; i < 9; i++) {
 				document
 					.getElementById(boxHTMLIds[i])
-					.addEventListener("click", useBox)
-					.addEventListener("click", () => {
-						clickXSound.play();
-					});
+					.addEventListener("click", useBox);
 			}
 		}, 3800);
 	});
