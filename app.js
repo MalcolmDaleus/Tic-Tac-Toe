@@ -17,7 +17,7 @@ const clickXSound = new Audio("clickX.mp3");
 const clickOSound = new Audio("clickO.mp3");
 const winSound = new Audio("win.mp3");
 const drawSound = new Audio("draw.mp3");
-const startSound = new Audio("tic-tac-toe_sounds_start.mp3");
+const startSound = new Audio("tic-tac-toe/sounds/start.mp3");
 
 // Empty array storage for game box element ids
 const boxHTMLIds = [];
