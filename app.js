@@ -114,7 +114,7 @@ function start() {
 					.getElementById(boxHTMLIds[i])
 					.addEventListener("click", useBox)
 					.addEventListener("click", () => {
-						clickXSound.play();
+						clickXSound.play());
 			}
 		}, 3800);
 	});
