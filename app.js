@@ -164,7 +164,7 @@ function useBox(e) {
 		setTimeout(() => {
 			e.target.innerHTML = player2.boxSign;
 			checkWinner(player2.boxesOccupied);
-			clickOOSound.play();
+			clickOSound.play();
 		}, 100);
 		player2.isPlaying = false;
 		player1.isPlaying = true;
