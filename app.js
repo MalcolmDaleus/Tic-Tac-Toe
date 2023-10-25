@@ -107,7 +107,7 @@ function start() {
 					popSound.play();
 				}, 400);
 			}
-		}, 400);
+		}, 600);
 
 		// Sets players and creates the event listeners for gameplay after boxes are placed.
 		player1.isPlaying = true;
