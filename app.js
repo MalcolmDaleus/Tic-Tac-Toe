@@ -95,13 +95,17 @@ function start() {
 			gameBox.id = "box" + i;
 			boxHTMLIds.push(gameBox.id);
 			gameBoard.elementid.appendChild(gameBox);
+			gameBoard.elementid.insertBefore(gameBox, resetButton);
 			popSound.play();
 			i++;
 
 			// Ends the deployment once all 9 boxes are placed.
 			if (i > 8) {
 				clearInterval(setBoxes);
-				resetButton.style.display = "block";
+				setTimeout(() => {
+					resetButton.style.display = "block";
+					popSound.play();
+				}, 400);
 			}
 		}, 400);
 
@@ -131,7 +135,7 @@ function resetGame() {
 		gameStatus.style.display = "none";
 		resetButton.style.display = "none";
 		resetButton.innerHTML = "Reset";
-		resetButton.style.fontSize = "60px";
+		resetButton.style.fontSize = "3.25vw";
 		draw = false;
 		hasWon = false;
 	});
@@ -279,7 +283,11 @@ function checkDraw() {
 // Displays the results of the game based on the game state. Hides the buttons and checks which player made the last move to win (uses !player1.isPlaying because of a bug where the player state changes before the results are displayed)
 function displayResults() {
 	gameStatus.style.display = "block";
-	resetButton.style.display = "none";
+	for (let i = 0; i < 9; i++) {
+		document
+			.getElementById(boxHTMLIds[i])
+			.removeEventListener("click", useBox);
+	}
 	if (!draw && hasWon == true) {
 		gameStatus.innerHTML = !player1.isPlaying
 			? "Player 1 Wins!"
@@ -289,9 +297,6 @@ function displayResults() {
 		gameStatus.innerHTML = "Draw!";
 		drawSound.play();
 	}
-	setTimeout(() => {
-		resetButton.style.display = "block";
-		resetButton.innerHTML = "Play Again?";
-		resetButton.style.fontSize = "30px";
-	}, 2500);
+	resetButton.innerHTML = "Play Again?";
+	resetButton.style.fontSize = "1.875vw";
 }
